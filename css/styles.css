@@ -36,55 +36,6 @@ ul {
   font-size: 24px;
 }
 
-/*
-#topleft {
-  position: fixed;
-  height: 200px;
-  background-color:green;
-
-}
-#topright {
-  position: fixed;
-  height: 200px;
-  background-color: red;
-}
-#bottomleft {
-  position: fixed;
-  height: 200px;
-  background-color: blue;
-}
-#bottomright {
-  position: fixed;
-  height: 200px;
-  background-color: yellow;
-}
-
-#turn {
-  position: absolute;
-  background: #330000;
-  color: red;
-  font-family: courier;
-  font-size: 20px;
-  height: 30px;
-  width: 50px;
-  margin-left: 90px;
-  margin-top: 170px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 30px;
-}
-#outer-circle {
-  background: #385a94;
-  height: 500px;
-  width: 500px;
-  position: relative;
-  border-style: solid;
-  border-width: 10px;
-  margin: auto;
-  margin-top: 60px;
-  box-shadow: 8px 8px 15px 5px #888888;
-}
-*/
 #topleft {
   position: absolute;
   height: 250px;
