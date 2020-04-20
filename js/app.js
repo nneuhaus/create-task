@@ -5,16 +5,37 @@ const bottomLeft= document.querySelector("#bottomleft");
 const bottomRight=document.querySelector("#bottomright");
 const start=document.querySelector("#start")
 const turnCounter = document.querySelector("#turn");
+const readyButton = document.querySelector("#on");
+
 ///////////////////// APP STATE (VARIABLES) /////////////////////////
 let order = [] //array
 let turn;
-let on = false;
+let ready = false;
 let light;
 let win;
 
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
 
 ///////////////////// EVENT LISTENERS ///////////////////////////////
+
+readyButton.addEventListener('click', (event) => {
+  if (start.checked == true) {
+    ready = true;
+    turnCounter.innerHTML = "-";
+  } else {
+    ready = false;
+    turnCounter.innerHTML = "";
+    clearColor();
+    clearInterval(intervalId);
+  }
+});
+
+start.addEventListener('click', (event) => {
+  if (on || win) {
+    play();
+  }
+});
+
 function play() {
   win = false;
   order = [];
@@ -32,7 +53,7 @@ function play() {
   intervalId = setInterval(gameTurn, 800);
 }
 
-function turn() {
+function playTurn() {
   on = false;
 
   if (light == turn) {
@@ -66,4 +87,103 @@ function lightColor() {
   topRight.style.backgroundColor = "lightred";
   bottomLeft.style.backgroundColor = "lightyellow";
   bottomRight.style.backgroundColor = "lightblue";
+}
+
+topLeft.addEventListener('click', (event) => {
+  if (on) {
+    playerOrder.push(1);
+    check();
+    one();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+topRight.addEventListener('click', (event) => {
+  if (on) {
+    playerOrder.push(2);
+    check();
+    two();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+bottomLeft.addEventListener('click', (event) => {
+  if (on) {
+    playerOrder.push(3);
+    check();
+    three();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+bottomRight.addEventListener('click', (event) => {
+  if (on) {
+    playerOrder.push(4);
+    check();
+    four();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+function correctClick() {
+  if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
+    good = false;
+
+  if (playerOrder.length == 3 && good) {
+    winGame();
+  }
+
+  if (good == false) {
+    lightColor();
+    turnCounter.innerHTML = "NO!";
+    setTimeout(() => {
+      turnCounter.innerHTML = turn;
+      clearColor();
+
+      if (strict) {
+        play();
+      } else {
+        compTurn = true;
+        light = 0;
+        playerOrder = [];
+        good = true;
+        intervalId = setInterval(gameTurn, 800);
+      }
+    }, 800);
+
+    noise = false;
+  }
+
+  if (turn == playerOrder.length && good && !win) {
+    turn++;
+    playerOrder = [];
+    compTurn = true;
+    light = 0;
+    turnCounter.innerHTML = turn;
+    intervalId = setInterval(gameTurn, 800);
+  }
+
+}
+
+function winGame() {
+  flashColor();
+  turnCounter.innerHTML = "WIN!";
+  on = false;
+  win = true;
 }
