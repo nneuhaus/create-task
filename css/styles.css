@@ -47,7 +47,17 @@ ul {
   border-style: solid;
   border-width: 5px;
 }
-
+#bottonGreen {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  background: green;
+  top: 73%;
+  left: 50%;
+  margin: -250px 0px 0px -250px;
+  border-style: solid;
+  border-width: 5px;
+}
 #topright {
   position: absolute;
   height: 250px;
@@ -83,7 +93,7 @@ ul {
   border-style: solid;
   border-width: 5px;
 }
-#start {
+#startButton {
   position:absolute;
   background-color: #b19cd9;
   border: 2px solid black;
