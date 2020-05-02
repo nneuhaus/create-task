@@ -36,33 +36,39 @@ ul {
   font-size: 24px;
 }
 
-#topleft {
+#topLeft {
   position: absolute;
   height: 250px;
   width: 250px;
-  background: green;
+  background: #659965;
   top: 73%;
   left: 50%;
   margin: -250px 0px 0px -250px;
   border-style: solid;
   border-width: 5px;
 }
-#bottonGreen {
+#buttonGreen {
   position: absolute;
   height: 250px;
   width: 250px;
-  background: green;
-  top: 73%;
-  left: 50%;
-  margin: -250px 0px 0px -250px;
-  border-style: solid;
-  border-width: 5px;
+  background: #659965;
+  top: 0%;
+  left: 0%;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.5s;
 }
-#topright {
+
+#buttonGreen:hover {
+  background-color: #9aed9a;
+}
+
+#topRight {
   position: absolute;
   height: 250px;
   width: 250px;
-  background: red;
+  background: #8f3535;
   top: 73%;
   left: 50%;
   margin: -250px 0px 0px 0px;
@@ -70,11 +76,28 @@ ul {
   border-width: 5px;
 }
 
-#bottomleft {
+#buttonRed {
   position: absolute;
   height: 250px;
   width: 250px;
-  background: yellow;
+  background: #8f3535;
+  top: 0%;
+  left: 0%;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.5s;
+}
+
+#buttonRed:hover{
+  background-color: #e33f3f;
+}
+
+#bottomLeft {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  background: #4988a6;
   top: 73%;
   left: 50%;
   margin: 0px -250px 0px -250px;
@@ -82,17 +105,53 @@ ul {
   border-width: 5px;
 }
 
-#bottomright {
+#buttonBlue {
   position: absolute;
   height: 250px;
   width: 250px;
-  background: blue;
+  background: #4988a6;
+  top: 0%;
+  left: 0%;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.5s;
+}
+
+#buttonBlue:hover {
+  background-color: #57b8e6;
+}
+
+#bottomRight {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  background: #c4bf49;
   top: 73%;
   left: 50%;
   margin: 0px 0px -250px 0px;
   border-style: solid;
   border-width: 5px;
+
 }
+
+#buttonYellow {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  background: #c4bf49;
+  top: 0%;
+  left: 0%;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.5s;
+}
+
+#buttonYellow:hover {
+  background-color: #f0eb73;
+}
+
 #startButton {
   position:absolute;
   background-color: #b19cd9;
@@ -105,5 +164,11 @@ ul {
   width: 456px;
   top:32%;
   left:34%;
-
+  border-radius: 15px;
+  box-shadow: 0 7px #999;
+}
+#startButton:active {
+  background-color: #a781f0;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
