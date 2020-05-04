@@ -129,3 +129,7 @@ function yellowLight(){
   document.getElementById("buttonYellow").style.backgroundColor = "#f0e946";
   setTimeout(clearYellow, 2000);
 }
+
+function betweenClicks() {
+
+}
