@@ -54,14 +54,14 @@ var yellowButton = document.getElementById("buttonYellow");
 function startGame() {
   for (i = 1; i<=10; i++){
     console.log("begin round " + i);
-    beginRound(i);
+    setTimeout(beginRound(i), 300);
   };
 };
 
 function beginRound(roundNumber) {
   for (j = 1; j <= roundNumber; j++) {
     console.log("light up " + j);
-    lightsUp(j);
+    setTimeout(lightsUp(j), 300);
   };
 
 };
@@ -131,7 +131,7 @@ function yellowLight(){
   setTimeout(clearYellow, 2000);
 }
 
-function followGreen(){
+/*function followGreen(){
   greenLight();
   setTimeout(console.log("g"), 150);
 }
@@ -150,10 +150,21 @@ function followYellow(){
   yellowLight();
   setTimeout(console.log("y"), 150);
 }
+*/
 
-// function betweenClicks() {
-  //var waitTime
-//  switch (waitTime) {
+function waitTime(){
+  if ( "g"=="green") {
+    "moveOn"
+  }
+  else {
+    console.log("GAME OVER")
+  }
+
+}
+
+//function betweenRounds() {
+//  var waitTime
+//  witch (waitTime) {
 //    case "round1":
 
   //}
