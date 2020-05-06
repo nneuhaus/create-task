@@ -165,7 +165,7 @@ ul {
   top:32%;
   left:34%;
   border-radius: 15px;
-  box-shadow: 0 7px #999;
+  box-shadow: 0 5px #999;
 }
 #startButton:active {
   background-color: #a781f0;

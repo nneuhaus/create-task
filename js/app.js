@@ -76,24 +76,25 @@ function lightsUp(number) {
   var lightUp = colors[number - 1];
   switch (lightUp) {
     case "green":
-      greenLight();
+      setTimeout(greenLight(), 500);
       setTimeout(console.log("g"), 500);
       break;
     case "red":
-      redLight();
+      setTimeout(redLight(), 500);
       setTimeout(console.log("r"), 500);
       break;
     case "blue":
-      blueLight();
+      setTimeout(blueLight(), 500);
       setTimeout(console.log("b"), 500);
       break;
     case "yellow":
-      yellowLight();
+      setTimeout(yellowLight(), 500);
       setTimeout(console.log("y"), 500);
       break;
     default:
       break;
   }
+  setTimeout((console.log("done waiting"), 500));
 }
 
 function clearGreen(){
@@ -130,6 +131,30 @@ function yellowLight(){
   setTimeout(clearYellow, 2000);
 }
 
-function betweenClicks() {
-
+function followGreen(){
+  greenLight();
+  setTimeout(console.log("g"), 150);
 }
+
+function followRed(){
+  redLight();
+  setTimeout(console.log("r"), 150);
+}
+
+function followBlue(){
+  blueLight();
+  setTimeout(console.log("b"), 150);
+}
+
+function followYellow(){
+  yellowLight();
+  setTimeout(console.log("y"), 150);
+}
+
+// function betweenClicks() {
+  //var waitTime
+//  switch (waitTime) {
+//    case "round1":
+
+  //}
+//}
