@@ -13,6 +13,9 @@ let on = false;
 let light;
 let win;
 let ready = true;
+let playerClick;
+let newNumber = -1;
+let genNumber = 0;
 var light1 = (Math.random() * 4);
 var light2 = (Math.random() * 4);
 var light3 = (Math.random() * 4);
@@ -47,24 +50,56 @@ var redButton = document.getElementById("buttonRed");
 var blueButton = document.getElementById("buttonBlue");
 var yellowButton = document.getElementById("buttonYellow");
 
+if ((yellowButton)||(redButton)||(blueButton)||(greenButton)) {
+  yellowButton.addEventListener("click", evaluateInput);
+  redButton.addEventListener("click", evaluateInput);
+  blueButton.addEventListener("click", evaluateInput);
+  greenButton.addEventListener("click", evaluateInput);
+} else {
+  yellowButton.addEventListener("click", evaluateInput);
+  redButton.addEventListener("click", evaluateInput);
+  blueButton.addEventListener("click", evaluateInput);
+  greenButton.addEventListener("click", evaluateInput);
+}
+
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
 
 ///////////////////// EVENT LISTENERS ///////////////////////////////
 //MAKE CLICK INTITIATE ACTION
-///////////////////// FUNCTIONS /////////////////////////////////////
-function startGame() {
-  for (i = 1; i<=10; i++){
+///////////////////// FUNCTIONS ////////////////////////////////////
+
+function roundOne() {
+  beginRound(1);
+  };
+
+function evaluateInput() {
+  console.log("evaluate");
+  if (genNumber == newNumber) {
+    console.log("partial success");
+    beginRound();
+  } else {
+    console.log("uh oh");
+  }
+}
+
+function roundTwo(){
+  beginRound(2);
+}
+
+/*function continueGame() {
+  for (i = 2; i<=10; i++){
     console.log("begin round " + i);
     beginRound(i);
   };
 };
-
+*/
 function beginRound(roundNumber) {
   for (j = 1; j <= roundNumber; j++) {
     console.log("light up " + j);
     lightsUp(j);
     };
 };
+
 
 /*function gameOn() {
   on = true;
@@ -79,8 +114,8 @@ function waitRound(x) {
 
 function lightsUp(number) {
   var lightUp = colors[number - 1];
-//    console.log(ready);
-  //  if (ready == true) {
+  console.log(ready);
+    if (ready == true) {
       switch (lightUp) {
         case "green":
           setTimeout(greenLight(), 500);
@@ -106,97 +141,74 @@ function lightsUp(number) {
           break;
         }
     }
+  }
 
 function clearGreen(){
-//  ready = true;
+  ready = true;
   document.getElementById("buttonGreen").style.backgroundColor = "#659965";
-  console.log("cleared");
 }
 
 function greenLight(){
-//  ready = false;
+  ready = false;
   document.getElementById("buttonGreen").style.backgroundColor = "#23db23";
   setTimeout(clearGreen, 2000);
 }
 
 function clearRed(){
-//  ready = true;
+  ready = true;
   document.getElementById("buttonRed").style.backgroundColor = "#8f3535";
-  console.log("cleared");
 }
 
 function redLight(){
-//  ready = false;
+  ready = false;
   document.getElementById("buttonRed").style.backgroundColor = "#d43131";
   setTimeout(clearRed, 2000);
 }
 function clearBlue(){
-//  ready = true;
+  ready = true;
   document.getElementById("buttonBlue").style.backgroundColor = "#4988a6";
-  console.log("cleared");
 }
 
 function blueLight(){
-//  ready = false;
+  ready = false;
   document.getElementById("buttonBlue").style.backgroundColor = "#2d5ecf";
   setTimeout(clearBlue, 2000);
 }
 function clearYellow(){
-//  ready = true;
+  ready = true;
   document.getElementById("buttonYellow").style.backgroundColor = "#c4bf49";
-  console.log("cleared");
 }
 
 function yellowLight(){
-//  ready = false;
-  document.getElementById("buttonYellow").style.backgroundColor = "#f0e946";
-  clearYellow();
+  ready = false;
+  document.getElementById("buttonYellow").style.backgroundColor = "#fff06e";
+  setTimeout(clearYellow, 2000);
 }
 
 function followGreen(){
   greenLight();
   setTimeout(console.log("g"), 150);
-//  ready = true;
+  ready = true;
   newNumber = 1;
 }
 
 function followRed(){
   redLight();
   setTimeout(console.log("r"), 150);
-//  ready = true;
+  ready = true;
   newNumber = 2;
 }
 
 function followBlue(){
   blueLight();
   setTimeout(console.log("b"), 150);
-//  ready = true;
+  ready = true;
   newNumber = 3;
 }
 
 function followYellow(){
   yellowLight();
   setTimeout(console.log("y"), 150);
-  //ready = true;
+  ready = true;
   newNumber = 4;
-
 }
-
-
-/*function waitTime(){
-  if ( "g"=="green") {
-    "moveOn"
-  }
-  else {
-    console.log("GAME OVER")
-  }
-
-}
-*/
-//function betweenRounds() {
-//  var waitTime
-//  witch (waitTime) {
-//    case "round1":
-
-  //}
-//}
